@@ -12,3 +12,12 @@ java -jar target/releasebuild.example-0.0.0-SNAPSHOT-jar-with-dependencies.jar
 or
 mvn exec:java
 ```
+# Beschreibung - Releasebau
+1. Projekt aufsetzen
+2. branch production erstellen
+3. branch feature/xxx erstellen
+4. feature auf feature branch implementieren
+5. feature in den master mergen
+6. release auf dem master bauen
+7. release tag in den production branch mergen
+8. production branch deployen

@@ -1,0 +1,4 @@
+-exportcontents: \
+    com.github.funthomas424242.releasebuild
+
+Main-Class:                     com.github.funthomas424242.releasebuild.Main

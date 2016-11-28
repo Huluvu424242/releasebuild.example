@@ -29,4 +29,8 @@ der Tag release.example-0.0.0 eine pom.xml mit SNAPSHOT Version. Das hätte ich 
 * Das Perform wurde abgebrochen weil das Deployment auf Grund ungültiger Zugangsdaten scheiterte. Es
 entstand eine Situation die ich nicht mehr lösen konnte. Ich entschied mich das Release zu canceln und 0.0.1 vorzubereiten.
 Dazu spaltete ich den Branch feature/vorgehen2 ab. Die pom.xml steht auf 0.0.1-SNAPSHOT
-
+2. Beim Bilden des Release 0.0.1 wurde wieder einfach mvn release:prepare und mvn release:perform ausgeführt.
+ Die Probleme waren die gleichen wie unter 1) allerdings schlug das Deployment nicht fail und so wurde das "Release" mit SNAPSHOT in der
+ pom.xml in das snapshot directory auf jfrog deployed. Um die kostenfreien Speierresourcen dort nicht zu belasten habe ich es natürlich 
+ gleich wieder gelöscht. 
+ 

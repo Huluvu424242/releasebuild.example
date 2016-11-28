@@ -37,3 +37,6 @@ Dazu spaltete ich den Branch feature/vorgehen2 ab. Die pom.xml steht auf 0.0.1-S
  Das führt dazu das ein neuer release-pom.xml versucht wird mit einzuchecken. Irgendwie hinterlässt das release plugin aber lokale Änderungen
  und ein remove des Release Poms scheitert (warum auch immer dieser durchgeführt wird wenn er vorher extra hinzugefügt wird?). Der Push des 
  release Tags funktioniert aber es ist wieder nur die SNAPSHOT pom.xml drin.
+4. Beim Bilden von Release v0.0.3 wurde in der pom.xml das release plugin konfiguriert und das Release im Batch Mode gebildet: 
+mvn -B release:prepare mvn -B release:perform
+Anschließend war ein Release Tag v0.0.3 zu finden mit einer korrekten Release pom.xml 

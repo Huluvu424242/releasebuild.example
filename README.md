@@ -33,4 +33,7 @@ Dazu spaltete ich den Branch feature/vorgehen2 ab. Die pom.xml steht auf 0.0.1-S
  Die Probleme waren die gleichen wie unter 1) allerdings schlug das Deployment nicht fail und so wurde das "Release" mit SNAPSHOT in der
  pom.xml in das snapshot directory auf jfrog deployed. Um die kostenfreien Speierresourcen dort nicht zu belasten habe ich es natürlich 
  gleich wieder gelöscht. 
- 
+3. Beim Bilden von Release 0.0.2 wurde mvn release:prepare-with-pom probiert.
+ Das führt dazu das ein neuer release-pom.xml versucht wird mit einzuchecken. Irgendwie hinterlässt das release plugin aber lokale Änderungen
+ und ein remove des Release Poms scheitert (warum auch immer dieser durchgeführt wird wenn er vorher extra hinzugefügt wird?). Der Push des 
+ release Tags funktioniert aber es ist wieder nur die SNAPSHOT pom.xml drin.

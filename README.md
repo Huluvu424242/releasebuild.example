@@ -21,3 +21,12 @@ mvn exec:java
 6. release auf dem master bauen
 7. release tag in den production branch mergen
 8. production branch deployen
+
+# Fallen
+1. Beim Bilden des Release 0.0.0 wurde einfach mvn release:prepare und mvn release:perform ausgeführt
+* Prepare wurde interaktiv durchgeführt und es wurde ein push des release Tags ausgelöst. Leider enthält 
+der Tag release.example-0.0.0 eine pom.xml mit SNAPSHOT Version. Das hätte ich nicht erwartet.
+* Das Perform wurde abgebrochen weil das Deployment auf Grund ungültiger Zugangsdaten scheiterte. Es
+entstand eine Situation die ich nicht mehr lösen konnte. Ich entschied mich das Release zu canceln und 0.0.1 vorzubereiten.
+Dazu spaltete ich den Branch feature/vorgehen2 ab. Die pom.xml steht auf 0.0.1-SNAPSHOT
+

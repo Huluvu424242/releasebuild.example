@@ -7,8 +7,16 @@ import org.junit.Test;
  */
 public class MainTest {
 
+
     @Test
-    public void testPrint_ValidCall(){
+    public void testPrint_ValidInstanceCall(){
+        final Main main = new Main();
+        final String[] params=new String[]{"Hallo"};
+        main.main(params);
+    }
+
+    @Test
+    public void testPrint_ValidStaticCall(){
         Main.main(null);
     }
 

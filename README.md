@@ -12,15 +12,30 @@ java -jar target/releasebuild.example-0.0.0-SNAPSHOT-jar-with-dependencies.jar
 or
 mvn exec:java
 ```
-# Beschreibung - Releasebau
+# Beschreibung - Releasebau Variante1
+(Der master enthält abwechselnd release und snapshot Stände)
 1. Projekt aufsetzen
 2. branch production erstellen
 3. branch feature/xxx erstellen
 4. feature auf feature branch implementieren
 5. feature in den master mergen
-6. release auf dem master bauen
+6. release auf dem master bauen, mit Deployment auf einen nexus.
 7. release tag in den production branch mergen
 8. production branch deployen
+
+# Beschreibung - Releasebau Variante2
+(Der master enthält nur release Stände)
+1. Projekt aufsetzen
+2. bramch production erstellen
+3. Feature im Featurebranch entwickeln, mit ständigen CI Läufen
+4. feature branch aus master aktualisieren
+5. CI Lauf mit Releasebildung am Ende
+6. ReleaseTag in den master mergen (evtl. tmpBranch benötigt)
+7. CI Stack (Unit, Int, Akzeptanz, Coverage, Last) läuft mit ReleaseTag und falls 
+erfolgreich wird der ReleaseTag in den production branch gemerged (automatisch oder händisch wie gewünscht)
+8. production branch deployed automatisch und veröffentlicht die Anwendung
+(Variante 2 ohne fachliche Umsetzung kan als Spezialform aus Variante 1 Schritt 6 gesehen werden)
+
 
 # Fallen
 1. Beim Bilden des Release 0.0.0 wurde einfach mvn release:prepare und mvn release:perform ausgeführt

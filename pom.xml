@@ -3,7 +3,7 @@
 
     <groupId>com.github.funthomas424242</groupId>
     <artifactId>releasebuild.example</artifactId>
-    <version>0.0.13-SNAPSHOT</version>
+    <version>0.0.13</version>
 
     <packaging>jar</packaging>
 
@@ -22,7 +22,7 @@
         <url>https://github.com/FunThomas424242/releasebuild.example</url>
         <connection>scm:git:https://github.com/FunThomas424242/releasebuild.example.git</connection>
         <developerConnection>scm:git:https://github.com/FunThomas424242/releasebuild.example.git</developerConnection>
-        <tag>0.0.12-RELEASE</tag>
+        <tag>0.0.13-RELEASE</tag>
     </scm>
 
     <ciManagement>

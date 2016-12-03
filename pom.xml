@@ -3,7 +3,7 @@
 
     <groupId>com.github.funthomas424242</groupId>
     <artifactId>releasebuild.example</artifactId>
-    <version>0.0.12</version>
+    <version>0.0.13</version>
 
     <packaging>jar</packaging>
 
@@ -11,13 +11,18 @@
     <properties>
         <!-- Start mit mvn exec:java -->
         <exec.mainClass>com.github.funthomas424242.releasebuild.Main</exec.mainClass>
+        <!-- Control of deployment and publishing to bintray -->
+        <groupId>${project.groupId}</groupId>
+        <artifactId>${project.artifactId}</artifactId>
+        <version>${project.version}</version>
+        <updateReleaseInfo>true</updateReleaseInfo>
     </properties>
 
     <scm>
         <url>https://github.com/FunThomas424242/releasebuild.example</url>
         <connection>scm:git:https://github.com/FunThomas424242/releasebuild.example.git</connection>
         <developerConnection>scm:git:https://github.com/FunThomas424242/releasebuild.example.git</developerConnection>
-        <tag>0.0.12-RELEASE</tag>
+        <tag>0.0.13-RELEASE</tag>
     </scm>
 
     <ciManagement>
@@ -206,6 +211,52 @@
                     <tagNameFormat>@{project.version}-RELEASE</tagNameFormat>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <file>${project.build.directory}/${project.build.finalName}.jar</file>
+                    <repositoryId>bintray-funthomas424242-releases</repositoryId>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sonstiges@bintray</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                deploy-file
+                            </goal>
+                        </goals>
+                        <configuration>
+                            <url>https://api.bintray.com/maven/funthomas424242/sonstiges/${project.artifactId}/;publish=0</url>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>funthomas424242-libs@bintray</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                deploy-file
+                            </goal>
+                        </goals>
+                        <configuration>
+                            <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/${project.artifactId}/;publish=0</url>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>funthomas424242-p2-repositories@bintray</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                deploy-file
+                            </goal>
+                        </goals>
+                        <configuration>
+                            <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-p2-repositories/${project.artifactId}/;publish=0</url>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
@@ -257,69 +308,6 @@
             </plugins>
         </pluginManagement>
     </build>
-
-    <profiles>
-        <profile>
-            <id>publish</id>
-            <properties>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>${project.artifactId}</artifactId>
-                <version>${project.version}</version>
-                <updateReleaseInfo>true</updateReleaseInfo>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <configuration>
-                            <file>${project.build.directory}/${project.build.finalName}.jar</file>
-                            <repositoryId>bintray-funthomas424242-releases</repositoryId>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>sonstiges@bintray</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>
-                                        deploy-file
-                                    </goal>
-                                </goals>
-                                <configuration>
-                                    <url>https://api.bintray.com/maven/funthomas424242/sonstiges/${project.artifactId}/;publish=0</url>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>funthomas424242-libs@bintray</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>
-                                        deploy-file
-                                    </goal>
-                                </goals>
-                                <configuration>
-                                    <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/${project.artifactId}/;publish=0</url>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>funthomas424242-p2-repositories@bintray</id>
-                                <phase>deploy</phase>
-                                <goals>
-                                    <goal>
-                                        deploy-file
-                                    </goal>
-                                </goals>
-                                <configuration>
-                                    <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-p2-repositories/${project.artifactId}/;publish=0</url>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
 
     <developers>
         <developer>

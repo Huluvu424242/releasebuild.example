@@ -43,7 +43,7 @@ erfolgreich wird der ReleaseTag in den production branch gemerged (automatisch o
 (Variante 2 ohne fachliche Umsetzung kan als Spezialform aus Variante 1 Schritt 6 gesehen werden)
 
 
-# Fallen
+# Fallstricke
 
 1. Beim Bilden des Release 0.0.0 wurde einfach mvn release:prepare und mvn release:perform ausgeführt
 

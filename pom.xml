@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.funthomas424242</groupId>
@@ -206,7 +207,40 @@
                     <tagNameFormat>@{project.version}-RELEASE</tagNameFormat>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>funthomas424242-libs@bintray</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                deploy-file
+                            </goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.build.directory}/${project.build.finalName}</file>
+                            <repositoryId>bintray-funthomas424242-releases</repositoryId>
+                            <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/${project.artifactId}/;publish=0</url>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>funthomas424242-@bintray</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                deploy-file
+                            </goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.build.directory}/${project.build.finalName}</file>
+                            <repositoryId>bintray-funthomas424242-releases</repositoryId>
+                            <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-p2-repositories/${project.artifactId}/;publish=0</url>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <pluginManagement>
             <plugins>

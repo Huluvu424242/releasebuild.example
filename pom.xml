@@ -212,6 +212,20 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>sonstiges@bintray</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>
+                                deploy-file
+                            </goal>
+                        </goals>
+                        <configuration>
+                            <file>${project.build.directory}/${project.build.finalName}</file>
+                            <repositoryId>bintray-funthomas424242-releases</repositoryId>
+                            <url>https://api.bintray.com/maven/funthomas424242/sonstiges/${project.artifactId}/;publish=0</url>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>funthomas424242-libs@bintray</id>
                         <phase>deploy</phase>
                         <goals>

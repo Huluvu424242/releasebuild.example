@@ -1,4 +1,4 @@
-# files2gramps
+# releasebuild.example
 Java lib for files to pack as a export into gramps database format.
 
 [![Build Status](https://travis-ci.org/FunThomas424242/releasebuild.example.svg?branch=master)](https://travis-ci.org/FunThomas424242/releasebuild.example)

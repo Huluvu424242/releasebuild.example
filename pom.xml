@@ -220,7 +220,7 @@
                             </goal>
                         </goals>
                         <configuration>
-                            <file>${project.build.directory}/${project.build.finalName}</file>
+                            <file>${project.build.directory}/${project.build.finalName}.jar</file>
                             <repositoryId>bintray-funthomas424242-releases</repositoryId>
                             <url>https://api.bintray.com/maven/funthomas424242/sonstiges/${project.artifactId}/;publish=0</url>
                         </configuration>
@@ -234,7 +234,7 @@
                             </goal>
                         </goals>
                         <configuration>
-                            <file>${project.build.directory}/${project.build.finalName}</file>
+                            <file>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</file>
                             <repositoryId>bintray-funthomas424242-releases</repositoryId>
                             <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/${project.artifactId}/;publish=0</url>
                         </configuration>
@@ -248,7 +248,7 @@
                             </goal>
                         </goals>
                         <configuration>
-                            <file>${project.build.directory}/${project.build.finalName}</file>
+                            <file>${project.build.directory}/${project.build.finalName}-src.zip</file>
                             <repositoryId>bintray-funthomas424242-releases</repositoryId>
                             <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-p2-repositories/${project.artifactId}/;publish=0</url>
                         </configuration>

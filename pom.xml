@@ -228,31 +228,7 @@
                             </goal>
                         </goals>
                         <configuration>
-                            <url>https://api.bintray.com/maven/funthomas424242/sonstiges/${project.artifactId}/;publish=0</url>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>funthomas424242-libs@bintray</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>
-                                deploy-file
-                            </goal>
-                        </goals>
-                        <configuration>
-                            <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-libs/${project.artifactId}/;publish=0</url>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>funthomas424242-p2-repositories@bintray</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>
-                                deploy-file
-                            </goal>
-                        </goals>
-                        <configuration>
-                            <url>https://api.bintray.com/maven/funthomas424242/funthomas424242-p2-repositories/${project.artifactId}/;publish=0</url>
+                            <url>https://api.bintray.com/maven/funthomas424242/sonstiges/${project.artifactId}/;bt_package=${project.artifactId};bt_version=${project.version}-RELEASE;publish=0</url>
                         </configuration>
                     </execution>
                 </executions>
